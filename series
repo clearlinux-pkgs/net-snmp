@@ -1,1 +1,3 @@
 cve-2014-2285.nopatch
+0001-Remove-U64-typedef.patch
+0002-CHANGES-BUG-2712-Fix-Perl-module-compilation.patch
