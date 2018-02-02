@@ -6,7 +6,7 @@
 #
 Name     : net-snmp
 Version  : 5.7.3
-Release  : 22
+Release  : 23
 URL      : https://downloads.sourceforge.net/net-snmp/net-snmp-5.7.3.tar.gz
 Source0  : https://downloads.sourceforge.net/net-snmp/net-snmp-5.7.3.tar.gz
 Source1  : snmpd.service
