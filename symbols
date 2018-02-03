@@ -1048,6 +1048,7 @@ libnetsnmpagent.so.30:convert_v1pdu_to_v2
 libnetsnmpagent.so.30:convert_v2pdu_to_v1
 libnetsnmpagent.so.30:count_indexes
 libnetsnmpagent.so.30:create_trap_session
+libnetsnmpagent.so.30:do_something_perlish
 libnetsnmpagent.so.30:dump_idx_registry
 libnetsnmpagent.so.30:dump_registry
 libnetsnmpagent.so.30:dump_sess_list
@@ -1078,11 +1079,13 @@ libnetsnmpagent.so.30:init_agent_snmp_session
 libnetsnmpagent.so.30:init_agent_sysORTable
 libnetsnmpagent.so.30:init_iquery
 libnetsnmpagent.so.30:init_master_agent
+libnetsnmpagent.so.30:init_perl
 libnetsnmpagent.so.30:init_traps
 libnetsnmpagent.so.30:init_usmConf
 libnetsnmpagent.so.30:init_vacm_conf
 libnetsnmpagent.so.30:init_vacm_config_tokens
 libnetsnmpagent.so.30:init_vacm_snmpd_easy_tokens
+libnetsnmpagent.so.30:maybe_source_perl_startup
 libnetsnmpagent.so.30:netsnmp_acm_check_subtree
 libnetsnmpagent.so.30:netsnmp_add_queued
 libnetsnmpagent.so.30:netsnmp_add_varbind_to_cache
@@ -1488,6 +1491,7 @@ libnetsnmpagent.so.30:netsnmp_watcher_helper_handler
 libnetsnmpagent.so.30:netsnmp_wrap_up_request
 libnetsnmpagent.so.30:open_agentx_session
 libnetsnmpagent.so.30:parse_injectHandler_conf
+libnetsnmpagent.so.30:perl_config_handler
 libnetsnmpagent.so.30:process_get_requests
 libnetsnmpagent.so.30:process_set_requests
 libnetsnmpagent.so.30:real_init_master
@@ -1533,6 +1537,7 @@ libnetsnmpagent.so.30:should_init
 libnetsnmpagent.so.30:shutdown_agent
 libnetsnmpagent.so.30:shutdown_agent_sysORTable
 libnetsnmpagent.so.30:shutdown_master_agent
+libnetsnmpagent.so.30:shutdown_perl
 libnetsnmpagent.so.30:shutdown_tree
 libnetsnmpagent.so.30:snmpd_free_trapcommunity
 libnetsnmpagent.so.30:snmpd_free_trapsinks
@@ -1595,6 +1600,7 @@ libnetsnmpagent.so.30:vacm_parse_setaccess
 libnetsnmpagent.so.30:vacm_parse_view
 libnetsnmpagent.so.30:vacm_standard_views
 libnetsnmpagent.so.30:vacm_warn_if_not_configured
+libnetsnmpagent.so.30:xs_init
 libnetsnmpmibs.so.30:Add_Entry
 libnetsnmpmibs.so.30:Check_HR_FileSys_NFS
 libnetsnmpmibs.so.30:Get_FSIndex

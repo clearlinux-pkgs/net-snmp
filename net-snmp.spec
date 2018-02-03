@@ -6,7 +6,7 @@
 #
 Name     : net-snmp
 Version  : 5.7.3
-Release  : 23
+Release  : 24
 URL      : https://downloads.sourceforge.net/net-snmp/net-snmp-5.7.3.tar.gz
 Source0  : https://downloads.sourceforge.net/net-snmp/net-snmp-5.7.3.tar.gz
 Source1  : snmpd.service
@@ -93,7 +93,6 @@ doc components for the net-snmp package.
 Summary: lib components for the net-snmp package.
 Group: Libraries
 Requires: net-snmp-data
-Requires: net-snmp-config
 
 %description lib
 lib components for the net-snmp package.
@@ -109,16 +108,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1506215064
+export SOURCE_DATE_EPOCH=1517686119
 export CFLAGS="$CFLAGS -fstack-protector-strong "
 export FCFLAGS="$CFLAGS -fstack-protector-strong "
 export FFLAGS="$CFLAGS -fstack-protector-strong "
 export CXXFLAGS="$CXXFLAGS -fstack-protector-strong "
 %configure --disable-static --disable-des
-make V=1  %{?_smp_mflags} -j1
+make  %{?_smp_mflags} -j1
 
 %install
-export SOURCE_DATE_EPOCH=1506215064
+export SOURCE_DATE_EPOCH=1517686119
 rm -rf %{buildroot}
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
@@ -345,6 +344,7 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 /usr/share/snmp/mibs/UCD-IPFWACC-MIB.txt
 /usr/share/snmp/mibs/UCD-SNMP-MIB.txt
 /usr/share/snmp/mibs/UDP-MIB.txt
+/usr/share/snmp/snmp_perl.pl
 /usr/share/snmp/snmp_perl_trapd.pl
 /usr/share/snmp/snmpconf-data/snmp-data/authopts
 /usr/share/snmp/snmpconf-data/snmp-data/debugging

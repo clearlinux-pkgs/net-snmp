@@ -120,9 +120,6 @@ Configure miss: sys/timeout.h
 Configure miss: machine/pte.h usability
 Configure miss: machine/pte.h presence
 Configure miss: machine/pte.h
-Configure miss: valgrind/valgrind.h usability
-Configure miss: valgrind/valgrind.h presence
-Configure miss: valgrind/valgrind.h
 Configure miss: valgrind/memcheck.h usability
 Configure miss: valgrind/memcheck.h presence
 Configure miss: valgrind/memcheck.h
@@ -221,7 +218,6 @@ Configure miss: nlist64
 Configure miss: knlist
 Configure miss: eval_pv
 Configure miss: perl_eval_pv
-Configure miss: Perl_eval_pv
 Configure miss: if we should install the python bindings
 Configure miss: getipnodebyname
 Configure miss: cgetnext

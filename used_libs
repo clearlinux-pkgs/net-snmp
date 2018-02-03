@@ -5,5 +5,6 @@ libdl.so.2
 libm.so.6
 libnsl.so.1
 libpci.so.3
+libperl.so
 libpthread.so.0
 libutil.so.1
