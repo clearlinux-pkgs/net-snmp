@@ -28,7 +28,7 @@ BuildRequires : perl(NetSNMP::OID)
 BuildRequires : pip
 BuildRequires : pkgconfig(libpci)
 BuildRequires : procps-ng
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 Patch1: cve-2014-2285.nopatch
