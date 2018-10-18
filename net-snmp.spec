@@ -6,7 +6,7 @@
 #
 Name     : net-snmp
 Version  : 5.7.3
-Release  : 27
+Release  : 28
 URL      : https://downloads.sourceforge.net/net-snmp/net-snmp-5.7.3.tar.gz
 Source0  : https://downloads.sourceforge.net/net-snmp/net-snmp-5.7.3.tar.gz
 Source1  : snmpd.service
@@ -15,25 +15,25 @@ Source99 : https://downloads.sourceforge.net/net-snmp/net-snmp-5.7.3.tar.gz.asc
 Summary  : Tools and servers for the SNMP protocol
 Group    : Development/Tools
 License  : BSD-3-Clause OpenSSL
-Requires: net-snmp-bin
-Requires: net-snmp-lib
-Requires: net-snmp-config
-Requires: net-snmp-doc
-Requires: net-snmp-data
+Requires: net-snmp-bin = %{version}-%{release}
+Requires: net-snmp-config = %{version}-%{release}
+Requires: net-snmp-data = %{version}-%{release}
+Requires: net-snmp-lib = %{version}-%{release}
+Requires: net-snmp-license = %{version}-%{release}
+Requires: net-snmp-man = %{version}-%{release}
+BuildRequires : buildreq-cpan
+BuildRequires : buildreq-distutils3
 BuildRequires : e2fsprogs-dev
 BuildRequires : net-tools
 BuildRequires : openssl-dev
-BuildRequires : pbr
 BuildRequires : perl(NetSNMP::OID)
-BuildRequires : pip
 BuildRequires : pkgconfig(libpci)
 BuildRequires : procps-ng
-
-BuildRequires : python3-dev
-BuildRequires : setuptools
+BuildRequires : valgrind
 Patch1: cve-2014-2285.nopatch
 Patch2: 0001-Remove-U64-typedef.patch
 Patch3: 0002-CHANGES-BUG-2712-Fix-Perl-module-compilation.patch
+Patch4: 0003-Use-vendor-path.patch
 
 %description
 Net-SNMP provides tools and libraries relating to the Simple Network
@@ -46,8 +46,10 @@ evaluate the state of your network.
 %package bin
 Summary: bin components for the net-snmp package.
 Group: Binaries
-Requires: net-snmp-data
-Requires: net-snmp-config
+Requires: net-snmp-data = %{version}-%{release}
+Requires: net-snmp-config = %{version}-%{release}
+Requires: net-snmp-license = %{version}-%{release}
+Requires: net-snmp-man = %{version}-%{release}
 
 %description bin
 bin components for the net-snmp package.
@@ -72,82 +74,96 @@ data components for the net-snmp package.
 %package dev
 Summary: dev components for the net-snmp package.
 Group: Development
-Requires: net-snmp-lib
-Requires: net-snmp-bin
-Requires: net-snmp-data
-Provides: net-snmp-devel
+Requires: net-snmp-lib = %{version}-%{release}
+Requires: net-snmp-bin = %{version}-%{release}
+Requires: net-snmp-data = %{version}-%{release}
+Provides: net-snmp-devel = %{version}-%{release}
 
 %description dev
 dev components for the net-snmp package.
 
 
-%package doc
-Summary: doc components for the net-snmp package.
-Group: Documentation
-
-%description doc
-doc components for the net-snmp package.
-
-
 %package lib
 Summary: lib components for the net-snmp package.
 Group: Libraries
-Requires: net-snmp-data
+Requires: net-snmp-data = %{version}-%{release}
+Requires: net-snmp-license = %{version}-%{release}
 
 %description lib
 lib components for the net-snmp package.
+
+
+%package license
+Summary: license components for the net-snmp package.
+Group: Default
+
+%description license
+license components for the net-snmp package.
+
+
+%package man
+Summary: man components for the net-snmp package.
+Group: Default
+
+%description man
+man components for the net-snmp package.
 
 
 %prep
 %setup -q -n net-snmp-5.7.3
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1517686119
-export CFLAGS="$CFLAGS -fstack-protector-strong "
-export FCFLAGS="$CFLAGS -fstack-protector-strong "
-export FFLAGS="$CFLAGS -fstack-protector-strong "
-export CXXFLAGS="$CXXFLAGS -fstack-protector-strong "
+export SOURCE_DATE_EPOCH=1539902863
+export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static --disable-des
 make  %{?_smp_mflags} -j1
 
 %install
-export SOURCE_DATE_EPOCH=1517686119
+export SOURCE_DATE_EPOCH=1539902863
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/net-snmp
+cp COPYING %{buildroot}/usr/share/package-licenses/net-snmp/COPYING
+cp python/LICENSE %{buildroot}/usr/share/package-licenses/net-snmp/python_LICENSE
+cp snmplib/openssl/OPENSSL-LICENSE %{buildroot}/usr/share/package-licenses/net-snmp/snmplib_openssl_OPENSSL-LICENSE
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
 install -m 0644 %{SOURCE1} %{buildroot}/usr/lib/systemd/system/snmpd.service
 install -m 0644 %{SOURCE2} %{buildroot}/usr/lib/systemd/system/snmptrapd.service
-## make_install_append content
+## install_append content
 find %{buildroot} -type f -name '*.a' -exec rm -f {} \;
 find %{buildroot} -type f -name 'perllocal.pod' -exec rm -f {} \;
 find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
-## make_install_append end
+## install_append end
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Bundle/Makefile.subs.pl
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/ASN.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/OID.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/TrapReceiver.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent/Support.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent/default_store.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent/netsnmp_request_infoPtr.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/default_store.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/SNMP.pm
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/ASN/autosplit.ix
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/OID/autosplit.ix
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/TrapReceiver/autosplit.ix
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/autosplit.ix
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/default_store/autosplit.ix
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/default_store/autosplit.ix
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/SNMP/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/Bundle/Makefile.subs.pl
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/ASN.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/OID.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/TrapReceiver.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent/Support.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent/default_store.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent/netsnmp_request_infoPtr.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/default_store.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/SNMP.pm
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/ASN/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/OID/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/TrapReceiver/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/default_store/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/default_store/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/SNMP/autosplit.ix
 
 %files bin
 %defattr(-,root,root,-)
@@ -549,23 +565,117 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 /usr/lib64/libnetsnmphelpers.so
 /usr/lib64/libnetsnmpmibs.so
 /usr/lib64/libnetsnmptrapd.so
-
-%files doc
-%defattr(-,root,root,-)
-%doc /usr/share/man/man1/*
-%doc /usr/share/man/man3/*
-%doc /usr/share/man/man5/*
-%doc /usr/share/man/man8/*
+/usr/share/man/man3/NetSNMP::ASN.3
+/usr/share/man/man3/NetSNMP::OID.3
+/usr/share/man/man3/NetSNMP::TrapReceiver.3
+/usr/share/man/man3/NetSNMP::agent.3
+/usr/share/man/man3/NetSNMP::agent::default_store.3
+/usr/share/man/man3/NetSNMP::default_store.3
+/usr/share/man/man3/NetSNMP::netsnmp_request_infoPtr.3
+/usr/share/man/man3/SNMP.3
+/usr/share/man/man3/add_mibdir.3
+/usr/share/man/man3/add_module_replacement.3
+/usr/share/man/man3/config_perror.3
+/usr/share/man/man3/config_pwarn.3
+/usr/share/man/man3/default_store.3
+/usr/share/man/man3/fprint_description.3
+/usr/share/man/man3/fprint_objid.3
+/usr/share/man/man3/fprint_value.3
+/usr/share/man/man3/fprint_variable.3
+/usr/share/man/man3/get_module_node.3
+/usr/share/man/man3/netsnmp_agent_api.3
+/usr/share/man/man3/netsnmp_config_api.3
+/usr/share/man/man3/netsnmp_init_mib.3
+/usr/share/man/man3/netsnmp_mib_api.3
+/usr/share/man/man3/netsnmp_pdu_api.3
+/usr/share/man/man3/netsnmp_read_module.3
+/usr/share/man/man3/netsnmp_sess_api.3
+/usr/share/man/man3/netsnmp_session_api.3
+/usr/share/man/man3/netsnmp_trap_api.3
+/usr/share/man/man3/netsnmp_varbind_api.3
+/usr/share/man/man3/print_description.3
+/usr/share/man/man3/print_mib.3
+/usr/share/man/man3/print_objid.3
+/usr/share/man/man3/print_value.3
+/usr/share/man/man3/print_variable.3
+/usr/share/man/man3/read_all_mibs.3
+/usr/share/man/man3/read_config_print_usage.3
+/usr/share/man/man3/read_configs.3
+/usr/share/man/man3/read_mib.3
+/usr/share/man/man3/read_objid.3
+/usr/share/man/man3/read_premib_configs.3
+/usr/share/man/man3/register_app_config_handler.3
+/usr/share/man/man3/register_app_prenetsnmp_mib_handler.3
+/usr/share/man/man3/register_config_handler.3
+/usr/share/man/man3/register_const_config_handler.3
+/usr/share/man/man3/register_mib_handlers.3
+/usr/share/man/man3/register_prenetsnmp_mib_handler.3
+/usr/share/man/man3/send_easy_trap.3
+/usr/share/man/man3/send_trap_vars.3
+/usr/share/man/man3/send_v2trap.3
+/usr/share/man/man3/shutdown_mib.3
+/usr/share/man/man3/snmp_add_null_var.3
+/usr/share/man/man3/snmp_alarm.3
+/usr/share/man/man3/snmp_alarm_register.3
+/usr/share/man/man3/snmp_alarm_register_hr.3
+/usr/share/man/man3/snmp_alarm_unregister.3
+/usr/share/man/man3/snmp_api_errstring.3
+/usr/share/man/man3/snmp_async_send.3
+/usr/share/man/man3/snmp_clone_pdu.3
+/usr/share/man/man3/snmp_clone_varbind.3
+/usr/share/man/man3/snmp_close.3
+/usr/share/man/man3/snmp_error.3
+/usr/share/man/man3/snmp_fix_pdu.3
+/usr/share/man/man3/snmp_free_pdu.3
+/usr/share/man/man3/snmp_free_var.3
+/usr/share/man/man3/snmp_free_varbind.3
+/usr/share/man/man3/snmp_open.3
+/usr/share/man/man3/snmp_parse_oid.3
+/usr/share/man/man3/snmp_pdu_add_variable.3
+/usr/share/man/man3/snmp_pdu_create.3
+/usr/share/man/man3/snmp_perror.3
+/usr/share/man/man3/snmp_read.3
+/usr/share/man/man3/snmp_select_info.3
+/usr/share/man/man3/snmp_send.3
+/usr/share/man/man3/snmp_sess_async_send.3
+/usr/share/man/man3/snmp_sess_close.3
+/usr/share/man/man3/snmp_sess_error.3
+/usr/share/man/man3/snmp_sess_init.3
+/usr/share/man/man3/snmp_sess_open.3
+/usr/share/man/man3/snmp_sess_perror.3
+/usr/share/man/man3/snmp_sess_read.3
+/usr/share/man/man3/snmp_sess_select_info.3
+/usr/share/man/man3/snmp_sess_send.3
+/usr/share/man/man3/snmp_sess_session.3
+/usr/share/man/man3/snmp_sess_synch_response.3
+/usr/share/man/man3/snmp_sess_timeout.3
+/usr/share/man/man3/snmp_set_mib_errors.3
+/usr/share/man/man3/snmp_set_mib_warnings.3
+/usr/share/man/man3/snmp_set_save_descriptions.3
+/usr/share/man/man3/snmp_set_var_objid.3
+/usr/share/man/man3/snmp_set_var_typed_integer.3
+/usr/share/man/man3/snmp_set_var_typed_value.3
+/usr/share/man/man3/snmp_set_var_value.3
+/usr/share/man/man3/snmp_synch_response.3
+/usr/share/man/man3/snmp_timeout.3
+/usr/share/man/man3/snmp_varlist_add_variable.3
+/usr/share/man/man3/snprint_description.3
+/usr/share/man/man3/snprint_objid.3
+/usr/share/man/man3/snprint_value.3
+/usr/share/man/man3/snprint_variable.3
+/usr/share/man/man3/unregister_all_config_handlers.3
+/usr/share/man/man3/unregister_app_config_handler.3
+/usr/share/man/man3/unregister_config_handler.3
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/ASN/ASN.so
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/OID/OID.so
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/TrapReceiver/TrapReceiver.so
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/agent.so
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/default_store/default_store.so
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/default_store/default_store.so
-/usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/SNMP/SNMP.so
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/ASN/ASN.so
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/OID/OID.so
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/TrapReceiver/TrapReceiver.so
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/agent.so
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/default_store/default_store.so
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/default_store/default_store.so
+/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/SNMP/SNMP.so
 /usr/lib64/libnetsnmp.so.30
 /usr/lib64/libnetsnmp.so.30.0.3
 /usr/lib64/libnetsnmpagent.so.30
@@ -576,3 +686,51 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 /usr/lib64/libnetsnmpmibs.so.30.0.3
 /usr/lib64/libnetsnmptrapd.so.30
 /usr/lib64/libnetsnmptrapd.so.30.0.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/net-snmp/COPYING
+/usr/share/package-licenses/net-snmp/python_LICENSE
+/usr/share/package-licenses/net-snmp/snmplib_openssl_OPENSSL-LICENSE
+
+%files man
+%defattr(0644,root,root,0755)
+/usr/share/man/man1/agentxtrap.1
+/usr/share/man/man1/encode_keychange.1
+/usr/share/man/man1/fixproc.1
+/usr/share/man/man1/mib2c-update.1
+/usr/share/man/man1/mib2c.1
+/usr/share/man/man1/net-snmp-config.1
+/usr/share/man/man1/net-snmp-create-v3-user.1
+/usr/share/man/man1/snmp-bridge-mib.1
+/usr/share/man/man1/snmpbulkget.1
+/usr/share/man/man1/snmpbulkwalk.1
+/usr/share/man/man1/snmpcmd.1
+/usr/share/man/man1/snmpconf.1
+/usr/share/man/man1/snmpdelta.1
+/usr/share/man/man1/snmpdf.1
+/usr/share/man/man1/snmpget.1
+/usr/share/man/man1/snmpgetnext.1
+/usr/share/man/man1/snmpinform.1
+/usr/share/man/man1/snmpnetstat.1
+/usr/share/man/man1/snmpset.1
+/usr/share/man/man1/snmpstatus.1
+/usr/share/man/man1/snmptable.1
+/usr/share/man/man1/snmptest.1
+/usr/share/man/man1/snmptranslate.1
+/usr/share/man/man1/snmptrap.1
+/usr/share/man/man1/snmpusm.1
+/usr/share/man/man1/snmpvacm.1
+/usr/share/man/man1/snmpwalk.1
+/usr/share/man/man1/tkmib.1
+/usr/share/man/man1/traptoemail.1
+/usr/share/man/man5/mib2c.conf.5
+/usr/share/man/man5/snmp.conf.5
+/usr/share/man/man5/snmp_config.5
+/usr/share/man/man5/snmpd.conf.5
+/usr/share/man/man5/snmpd.examples.5
+/usr/share/man/man5/snmpd.internal.5
+/usr/share/man/man5/snmptrapd.conf.5
+/usr/share/man/man5/variables.5
+/usr/share/man/man8/snmpd.8
+/usr/share/man/man8/snmptrapd.8

@@ -1,0 +1,25 @@
+From 884fa7cbba76b57a36b8da114ec56234f86dcda9 Mon Sep 17 00:00:00 2001
+From: "Brett T. Warden" <brett.t.warden@intel.com>
+Date: Thu, 18 Oct 2018 15:31:35 -0700
+Subject: [PATCH] Use vendor path
+
+---
+ Makefile.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index cfcdf73..75e2d74 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -184,7 +184,7 @@ perlmakefiles: net-snmp-config-x
+         fi
+ 
+ perlinstall:
+-	@(cd perl ; $(MAKE) install) ; \
++	@(cd perl ; $(MAKE) install_vendor) ; \
+         if test $$? != 0 ; then \
+            exit 1 ; \
+         fi
+-- 
+2.19.1
+
