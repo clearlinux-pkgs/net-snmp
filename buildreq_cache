@@ -1,3 +1,5 @@
-5.7.3
+5.8
 e2fsprogs-dev
+pcre-dev
+pkgconfig(ncurses)
 valgrind

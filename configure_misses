@@ -204,25 +204,41 @@ Configure miss: library containing kvm_read
 Configure miss: library containing kvm_openfiles
 Configure miss: library containing kvm_getprocs
 Configure miss: library containing kvm_getproc2
+Configure miss: library containing kvm_getfiles
+Configure miss: library containing kvm_getfile2
 Configure miss: library containing kvm_getswapinfo
 Configure miss: kvm_openfiles
 Configure miss: kvm_getprocs
 Configure miss: kvm_getproc2
 Configure miss: kvm_getswapinfo
-Configure miss: library containing kstat_lookup
+Configure miss: kvm_getfiles
+Configure miss: kvm_getfile2
+Configure miss: kstat_lookup in -lkstat
+Configure miss: in6addr_any in -lsocket
 Configure miss: library containing nl_connect
 Configure miss: library containing nl_connect
 Configure miss: -leay32
+Configure miss: EVP_MD_CTX_create
+Configure miss: EVP_MD_CTX_destroy
+Configure miss: SSL_library_init
+Configure miss: SSL_load_error_strings
+Configure miss: pcap_create in -lpcap
 Configure miss: nlist
 Configure miss: nlist64
 Configure miss: knlist
+Configure miss: ncurses/curses.h usability
+Configure miss: ncurses/curses.h presence
+Configure miss: ncurses/curses.h
 Configure miss: eval_pv
 Configure miss: perl_eval_pv
 Configure miss: if we should install the python bindings
 Configure miss: getipnodebyname
+Configure miss: closesocket
 Configure miss: cgetnext
+Configure miss: forkall
 Configure miss: sigalrm
 Configure miss: two-argument statfs with struct fs_data (Ultrix)
+Configure miss: whether static inline functions are broken (Unixware)
 Configure miss: struct arphd.at_next
 Configure miss: struct des_ks_struct.weak_key
 Configure miss: struct ipstat.ips_cantfrag
@@ -250,6 +266,7 @@ Configure miss: struct statfs.f_favail
 Configure miss: struct statvfs.mnt_dir
 Configure miss: struct swdevt.sw_nblksenabled
 Configure miss: struct tcpstat.tcp_rcvmemdrop
+Configure miss: struct time.tm_isdst
 Configure miss: struct udpstat.udps_discard
 Configure miss: struct udpstat.udps_fullsock
 Configure miss: struct udpstat.udps_noport
