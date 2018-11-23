@@ -6,7 +6,7 @@
 #
 Name     : net-snmp
 Version  : 5.8
-Release  : 31
+Release  : 32
 URL      : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.8/net-snmp-5.8.tar.gz
 Source0  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.8/net-snmp-5.8.tar.gz
 Source1  : snmpd.service
@@ -120,7 +120,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1542483031
+export SOURCE_DATE_EPOCH=1543001287
 export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -129,7 +129,7 @@ export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=use
 make  %{?_smp_mflags} -j1
 
 %install
-export SOURCE_DATE_EPOCH=1542483031
+export SOURCE_DATE_EPOCH=1543001287
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/net-snmp
 cp COPYING %{buildroot}/usr/share/package-licenses/net-snmp/COPYING
@@ -147,23 +147,23 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/Bundle/MakefileSubs.pm
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/ASN.pm
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/OID.pm
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/TrapReceiver.pm
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent.pm
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent/Support.pm
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent/default_store.pm
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/agent/netsnmp_request_infoPtr.pm
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/NetSNMP/default_store.pm
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/SNMP.pm
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/ASN/autosplit.ix
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/OID/autosplit.ix
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/TrapReceiver/autosplit.ix
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/autosplit.ix
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/default_store/autosplit.ix
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/default_store/autosplit.ix
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/SNMP/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/Bundle/MakefileSubs.pm
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/NetSNMP/ASN.pm
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/NetSNMP/OID.pm
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/NetSNMP/TrapReceiver.pm
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/NetSNMP/agent.pm
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/NetSNMP/agent/Support.pm
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/NetSNMP/agent/default_store.pm
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/NetSNMP/agent/netsnmp_request_infoPtr.pm
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/NetSNMP/default_store.pm
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/SNMP.pm
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/ASN/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/OID/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/TrapReceiver/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/agent/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/agent/default_store/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/default_store/autosplit.ix
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/SNMP/autosplit.ix
 
 %files bin
 %defattr(-,root,root,-)
@@ -686,13 +686,13 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/ASN/ASN.so
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/OID/OID.so
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/TrapReceiver/TrapReceiver.so
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/agent.so
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/agent/default_store/default_store.so
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/NetSNMP/default_store/default_store.so
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/SNMP/SNMP.so
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/ASN/ASN.so
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/OID/OID.so
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/TrapReceiver/TrapReceiver.so
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/agent/agent.so
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/agent/default_store/default_store.so
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/NetSNMP/default_store/default_store.so
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/SNMP/SNMP.so
 /usr/lib64/libnetsnmp.so.35
 /usr/lib64/libnetsnmp.so.35.0.0
 /usr/lib64/libnetsnmpagent.so.35
