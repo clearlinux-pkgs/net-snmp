@@ -6,7 +6,7 @@
 #
 Name     : net-snmp
 Version  : 5.8
-Release  : 30
+Release  : 31
 URL      : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.8/net-snmp-5.8.tar.gz
 Source0  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.8/net-snmp-5.8.tar.gz
 Source1  : snmpd.service
