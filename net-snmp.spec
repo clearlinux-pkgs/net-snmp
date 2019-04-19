@@ -6,7 +6,7 @@
 #
 Name     : net-snmp
 Version  : 5.8
-Release  : 35
+Release  : 36
 URL      : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.8/net-snmp-5.8.tar.gz
 Source0  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.8/net-snmp-5.8.tar.gz
 Source1  : snmpd.service
@@ -24,6 +24,7 @@ Requires: net-snmp-services = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : buildreq-distutils3
 BuildRequires : e2fsprogs-dev
+BuildRequires : libpcap-dev
 BuildRequires : net-tools
 BuildRequires : openssl-dev
 BuildRequires : pcre-dev
@@ -49,7 +50,6 @@ Summary: bin components for the net-snmp package.
 Group: Binaries
 Requires: net-snmp-data = %{version}-%{release}
 Requires: net-snmp-license = %{version}-%{release}
-Requires: net-snmp-man = %{version}-%{release}
 Requires: net-snmp-services = %{version}-%{release}
 
 %description bin
@@ -71,6 +71,7 @@ Requires: net-snmp-lib = %{version}-%{release}
 Requires: net-snmp-bin = %{version}-%{release}
 Requires: net-snmp-data = %{version}-%{release}
 Provides: net-snmp-devel = %{version}-%{release}
+Requires: net-snmp = %{version}-%{release}
 
 %description dev
 dev components for the net-snmp package.
@@ -120,7 +121,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547671955
+export SOURCE_DATE_EPOCH=1555715383
+export LDFLAGS="${LDFLAGS} -fno-lto"
 export CFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$CFLAGS -fstack-protector-strong -mzero-caller-saved-regs=used "
@@ -129,7 +131,7 @@ export CXXFLAGS="$CXXFLAGS -fstack-protector-strong -mzero-caller-saved-regs=use
 make  %{?_smp_mflags} -j1
 
 %install
-export SOURCE_DATE_EPOCH=1547671955
+export SOURCE_DATE_EPOCH=1555715383
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/net-snmp
 cp COPYING %{buildroot}/usr/share/package-licenses/net-snmp/COPYING
@@ -189,6 +191,7 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 /usr/bin/snmpgetnext
 /usr/bin/snmpinform
 /usr/bin/snmpnetstat
+/usr/bin/snmppcap
 /usr/bin/snmpping
 /usr/bin/snmpps
 /usr/bin/snmpset

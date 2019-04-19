@@ -222,7 +222,6 @@ Configure miss: EVP_MD_CTX_create
 Configure miss: EVP_MD_CTX_destroy
 Configure miss: SSL_library_init
 Configure miss: SSL_load_error_strings
-Configure miss: pcap_create in -lpcap
 Configure miss: nlist
 Configure miss: nlist64
 Configure miss: knlist

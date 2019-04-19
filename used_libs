@@ -5,6 +5,7 @@ libdl.so.2
 libm.so.6
 libncurses.so.6
 libnsl.so.1
+libpcap.so.1
 libpci.so.3
 libpcre.so.1
 libperl.so
