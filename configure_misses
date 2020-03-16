@@ -120,9 +120,6 @@ Configure miss: sys/timeout.h
 Configure miss: machine/pte.h usability
 Configure miss: machine/pte.h presence
 Configure miss: machine/pte.h
-Configure miss: valgrind/memcheck.h usability
-Configure miss: valgrind/memcheck.h presence
-Configure miss: valgrind/memcheck.h
 Configure miss: security/cryptoki.h usability
 Configure miss: security/cryptoki.h presence
 Configure miss: security/cryptoki.h
@@ -235,6 +232,7 @@ Configure miss: getipnodebyname
 Configure miss: closesocket
 Configure miss: cgetnext
 Configure miss: forkall
+Configure miss: stime
 Configure miss: sigalrm
 Configure miss: two-argument statfs with struct fs_data (Ultrix)
 Configure miss: whether static inline functions are broken (Unixware)
