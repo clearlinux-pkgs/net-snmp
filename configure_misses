@@ -1,9 +1,15 @@
 Configure miss: if I need to feed myself to ksh
+Configure miss: windres
 Configure miss: dpkg-query
+Configure miss: process.h usability
+Configure miss: process.h presence
 Configure miss: nlist.h
 Configure miss: kstat.h usability
 Configure miss: kstat.h presence
 Configure miss: kstat.h
+Configure miss: mach-o/dyld.h usability
+Configure miss: mach-o/dyld.h presence
+Configure miss: mach-o/dyld.h
 Configure miss: sys/systemcfg.h usability
 Configure miss: sys/systemcfg.h presence
 Configure miss: sys/systemcfg.h
@@ -87,9 +93,6 @@ Configure miss: linux/tasks.h
 Configure miss: machine/param.h usability
 Configure miss: machine/param.h presence
 Configure miss: machine/param.h
-Configure miss: netinet/tcp_fsm.h usability
-Configure miss: netinet/tcp_fsm.h presence
-Configure miss: netinet/tcp_fsm.h
 Configure miss: ufs/fs.h usability
 Configure miss: ufs/fs.h presence
 Configure miss: ufs/fs.h
@@ -127,7 +130,6 @@ Configure miss: rpm/rpmts.h
 Configure miss: rpm/rpmfileutil.h
 Configure miss: osreldate.h
 Configure miss: machine/types.h
-Configure miss: net/if_types.h
 Configure miss: sys/dkstat.h
 Configure miss: sys/conf.h
 Configure miss: sys/mbuf.h
@@ -145,6 +147,8 @@ Configure miss: ufs/ufs/quota.h
 Configure miss: ufs/ufs/inode.h
 Configure miss: ufs/ffs/fs.h
 Configure miss: vm/swap_pager.h
+Configure miss: netinet/tcp_fsm.h
+Configure miss: net/if_types.h
 Configure miss: net/if_mib.h
 Configure miss: net/if_var.h
 Configure miss: netinet/in_var.h
@@ -154,6 +158,7 @@ Configure miss: netinet/tcp_timer.h
 Configure miss: netinet/tcp_var.h
 Configure miss: netinet/tcpip.h
 Configure miss: netinet/udp_var.h
+Configure miss: netinet/in_pcb.h
 Configure miss: netinet6/in6_var.h
 Configure miss: netinet6/in6_pcb.h
 Configure miss: netinet6/ip6_var.h
@@ -162,7 +167,6 @@ Configure miss: netinet6/tcp6.h
 Configure miss: netinet6/tcp6_fsm.h
 Configure miss: netinet6/tcp6_timer.h
 Configure miss: netinet6/tcp6_var.h
-Configure miss: netinet/in_pcb.h
 Configure miss: pkginfo.h usability
 Configure miss: pkginfo.h presence
 Configure miss: pkginfo.h
@@ -173,6 +177,7 @@ Configure miss: pkg.h usability
 Configure miss: pkg.h presence
 Configure miss: pkg.h
 Configure miss: iphlpapi.h
+Configure miss: lm.h
 Configure miss: sensors/sensors.h usability
 Configure miss: sensors/sensors.h presence
 Configure miss: sensors/sensors.h
@@ -186,6 +191,7 @@ Configure miss: struct rtentry.rt_unit
 Configure miss: struct rtentry.rt_use
 Configure miss: Counter64
 Configure miss: mib2_ipIfStatsEntry_t
+Configure miss: struct in_ifaddr.ia_subnetmask
 Configure miss: rpm/rpmlib.h usability
 Configure miss: rpm/rpmlib.h presence
 Configure miss: rpm/rpmlib.h
@@ -210,15 +216,16 @@ Configure miss: kvm_getproc2
 Configure miss: kvm_getswapinfo
 Configure miss: kvm_getfiles
 Configure miss: kvm_getfile2
+Configure miss: MIB_IF_TABLE2
 Configure miss: kstat_lookup in -lkstat
 Configure miss: in6addr_any in -lsocket
-Configure miss: library containing nl_connect
 Configure miss: library containing nl_connect
 Configure miss: -leay32
 Configure miss: EVP_MD_CTX_create
 Configure miss: EVP_MD_CTX_destroy
 Configure miss: SSL_library_init
 Configure miss: SSL_load_error_strings
+Configure miss: ERR_get_error_all
 Configure miss: nlist
 Configure miss: nlist64
 Configure miss: knlist
@@ -229,7 +236,14 @@ Configure miss: eval_pv
 Configure miss: perl_eval_pv
 Configure miss: if we should install the python bindings
 Configure miss: getipnodebyname
+Configure miss: _NSGetArgv()
+Configure miss: _NSGetExecutablePath()
 Configure miss: closesocket
+Configure miss: _beginthreadex()
+Configure miss: _cputs()
+Configure miss: _get_osfhandle()
+Configure miss: _getch()
+Configure miss: _open_osfhandle()
 Configure miss: cgetnext
 Configure miss: forkall
 Configure miss: stime
@@ -263,7 +277,6 @@ Configure miss: struct statfs.f_favail
 Configure miss: struct statvfs.mnt_dir
 Configure miss: struct swdevt.sw_nblksenabled
 Configure miss: struct tcpstat.tcp_rcvmemdrop
-Configure miss: struct time.tm_isdst
 Configure miss: struct udpstat.udps_discard
 Configure miss: struct udpstat.udps_fullsock
 Configure miss: struct udpstat.udps_noport

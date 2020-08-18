@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xF07B9D2DACB19FD6 (net-snmp-admins@lists.sourceforge.net)
 #
 Name     : net-snmp
-Version  : 5.8
-Release  : 40
-URL      : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.8/net-snmp-5.8.tar.gz
-Source0  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.8/net-snmp-5.8.tar.gz
+Version  : 5.9
+Release  : 41
+URL      : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9/net-snmp-5.9.tar.gz
+Source0  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9/net-snmp-5.9.tar.gz
 Source1  : snmpd.service
 Source2  : snmptrapd.service
-Source3  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.8/net-snmp-5.8.tar.gz.asc
-Summary  : Tools and servers for the SNMP protocol
+Source3  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9/net-snmp-5.9.tar.gz.asc
+Summary  : unknown
 Group    : Development/Tools
 License  : BSD-3-Clause OpenSSL
 Requires: net-snmp-bin = %{version}-%{release}
@@ -38,7 +38,6 @@ BuildRequires : valgrind
 BuildRequires : valgrind-dev
 Patch1: cve-2014-2285.nopatch
 Patch2: 0001-Use-vendor-path.patch
-Patch3: 0002-Fix-compilation-when-disable-des-is-set.patch
 
 %description
 Net-SNMP provides tools and libraries relating to the Simple Network
@@ -124,32 +123,34 @@ services components for the net-snmp package.
 
 
 %prep
-%setup -q -n net-snmp-5.8
-cd %{_builddir}/net-snmp-5.8
+%setup -q -n net-snmp-5.9
+cd %{_builddir}/net-snmp-5.9
 %patch2 -p1
-%patch3 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591205974
+export SOURCE_DATE_EPOCH=1597771053
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static --disable-des
+## make_prepend content
+rm perl/Makefile
+## make_prepend end
 make  %{?_smp_mflags}  -j1
 
 %install
-export SOURCE_DATE_EPOCH=1591205974
+export SOURCE_DATE_EPOCH=1597771053
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/net-snmp
-cp %{_builddir}/net-snmp-5.8/COPYING %{buildroot}/usr/share/package-licenses/net-snmp/3783c8f99c31700ddd8453682f0178c88c14012c
-cp %{_builddir}/net-snmp-5.8/python/LICENSE %{buildroot}/usr/share/package-licenses/net-snmp/77bac2446a3e00a3aa1b8aaba3506d4ea46d6e5d
-cp %{_builddir}/net-snmp-5.8/snmplib/openssl/OPENSSL-LICENSE %{buildroot}/usr/share/package-licenses/net-snmp/c9c50bd46b69aba62e61c65d8ab08dd1e8c83b38
+cp %{_builddir}/net-snmp-5.9/COPYING %{buildroot}/usr/share/package-licenses/net-snmp/3783c8f99c31700ddd8453682f0178c88c14012c
+cp %{_builddir}/net-snmp-5.9/python/LICENSE %{buildroot}/usr/share/package-licenses/net-snmp/77bac2446a3e00a3aa1b8aaba3506d4ea46d6e5d
+cp %{_builddir}/net-snmp-5.9/snmplib/openssl/OPENSSL-LICENSE %{buildroot}/usr/share/package-licenses/net-snmp/c9c50bd46b69aba62e61c65d8ab08dd1e8c83b38
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
 install -m 0644 %{SOURCE1} %{buildroot}/usr/lib/systemd/system/snmpd.service
@@ -472,6 +473,7 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 /usr/include/net-snmp/library/snmp.h
 /usr/include/net-snmp/library/snmpAliasDomain.h
 /usr/include/net-snmp/library/snmpCallbackDomain.h
+/usr/include/net-snmp/library/snmpIPBaseDomain.h
 /usr/include/net-snmp/library/snmpIPv4BaseDomain.h
 /usr/include/net-snmp/library/snmpIPv6BaseDomain.h
 /usr/include/net-snmp/library/snmpSocketBaseDomain.h
@@ -523,23 +525,14 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 /usr/include/net-snmp/system/bsdi4.h
 /usr/include/net-snmp/system/cygwin.h
 /usr/include/net-snmp/system/darwin.h
-/usr/include/net-snmp/system/darwin10.h
-/usr/include/net-snmp/system/darwin11.h
-/usr/include/net-snmp/system/darwin12.h
-/usr/include/net-snmp/system/darwin13.h
-/usr/include/net-snmp/system/darwin14.h
-/usr/include/net-snmp/system/darwin15.h
-/usr/include/net-snmp/system/darwin16.h
-/usr/include/net-snmp/system/darwin17.h
-/usr/include/net-snmp/system/darwin7.h
-/usr/include/net-snmp/system/darwin8.h
-/usr/include/net-snmp/system/darwin9.h
 /usr/include/net-snmp/system/dragonfly.h
 /usr/include/net-snmp/system/dynix.h
 /usr/include/net-snmp/system/freebsd.h
 /usr/include/net-snmp/system/freebsd10.h
 /usr/include/net-snmp/system/freebsd11.h
 /usr/include/net-snmp/system/freebsd12.h
+/usr/include/net-snmp/system/freebsd13.h
+/usr/include/net-snmp/system/freebsd14.h
 /usr/include/net-snmp/system/freebsd2.h
 /usr/include/net-snmp/system/freebsd3.h
 /usr/include/net-snmp/system/freebsd4.h
@@ -551,7 +544,6 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 /usr/include/net-snmp/system/generic.h
 /usr/include/net-snmp/system/hpux.h
 /usr/include/net-snmp/system/irix.h
-/usr/include/net-snmp/system/kfreebsd.h
 /usr/include/net-snmp/system/linux.h
 /usr/include/net-snmp/system/mingw32.h
 /usr/include/net-snmp/system/mingw32msvc.h
@@ -581,13 +573,22 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 /usr/lib64/libnetsnmphelpers.so
 /usr/lib64/libnetsnmpmibs.so
 /usr/lib64/libnetsnmptrapd.so
+/usr/lib64/pkgconfig/netsnmp-agent.pc
+/usr/lib64/pkgconfig/netsnmp.pc
 /usr/share/man/man3/NetSNMP::ASN.3
+/usr/share/man/man3/NetSNMP::ASN.3pm
 /usr/share/man/man3/NetSNMP::OID.3
+/usr/share/man/man3/NetSNMP::OID.3pm
 /usr/share/man/man3/NetSNMP::TrapReceiver.3
+/usr/share/man/man3/NetSNMP::TrapReceiver.3pm
 /usr/share/man/man3/NetSNMP::agent.3
+/usr/share/man/man3/NetSNMP::agent.3pm
 /usr/share/man/man3/NetSNMP::agent::default_store.3
+/usr/share/man/man3/NetSNMP::agent::default_store.3pm
 /usr/share/man/man3/NetSNMP::default_store.3
+/usr/share/man/man3/NetSNMP::default_store.3pm
 /usr/share/man/man3/NetSNMP::netsnmp_request_infoPtr.3
+/usr/share/man/man3/NetSNMP::netsnmp_request_infoPtr.3pm
 /usr/share/man/man3/SNMP.3
 /usr/share/man/man3/add_mibdir.3
 /usr/share/man/man3/add_module_replacement.3
@@ -685,16 +686,16 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libnetsnmp.so.35
-/usr/lib64/libnetsnmp.so.35.0.0
-/usr/lib64/libnetsnmpagent.so.35
-/usr/lib64/libnetsnmpagent.so.35.0.0
-/usr/lib64/libnetsnmphelpers.so.35
-/usr/lib64/libnetsnmphelpers.so.35.0.0
-/usr/lib64/libnetsnmpmibs.so.35
-/usr/lib64/libnetsnmpmibs.so.35.0.0
-/usr/lib64/libnetsnmptrapd.so.35
-/usr/lib64/libnetsnmptrapd.so.35.0.0
+/usr/lib64/libnetsnmp.so.40
+/usr/lib64/libnetsnmp.so.40.0.0
+/usr/lib64/libnetsnmpagent.so.40
+/usr/lib64/libnetsnmpagent.so.40.0.0
+/usr/lib64/libnetsnmphelpers.so.40
+/usr/lib64/libnetsnmphelpers.so.40.0.0
+/usr/lib64/libnetsnmpmibs.so.40
+/usr/lib64/libnetsnmpmibs.so.40.0.0
+/usr/lib64/libnetsnmptrapd.so.40
+/usr/lib64/libnetsnmptrapd.so.40.0.0
 
 %files license
 %defattr(0644,root,root,0755)

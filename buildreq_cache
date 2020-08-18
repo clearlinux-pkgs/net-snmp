@@ -1,8 +1,7 @@
-5.8
+5.9
 e2fsprogs-dev
 libpcap-dev
 ncurses-dev
 pcre-dev
-pkgconfig(ncurses)
 valgrind
 valgrind-dev

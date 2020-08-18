@@ -1,3 +1,2 @@
 cve-2014-2285.nopatch
 0001-Use-vendor-path.patch
-0002-Fix-compilation-when-disable-des-is-set.patch
