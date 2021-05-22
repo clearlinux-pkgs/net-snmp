@@ -6,7 +6,7 @@
 #
 Name     : net-snmp
 Version  : 5.9
-Release  : 45
+Release  : 46
 URL      : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9/net-snmp-5.9.tar.gz
 Source0  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9/net-snmp-5.9.tar.gz
 Source1  : snmpd.service
