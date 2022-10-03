@@ -1,17 +1,17 @@
-From 529ac8d417c72f2e12a728005b0bef9601f317e3 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: "Brett T. Warden" <brett.t.warden@intel.com>
 Date: Thu, 18 Oct 2018 15:31:35 -0700
-Subject: [PATCH 1/2] Use vendor path
+Subject: [PATCH] Use vendor path
 
 ---
  Makefile.in | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile.in b/Makefile.in
-index 9dbdde1..a389505 100644
+index f1cbbf5..4fe7aa9 100644
 --- a/Makefile.in
 +++ b/Makefile.in
-@@ -191,7 +191,7 @@ perl/Makefile: perl/Makefile.PL
+@@ -191,7 +191,7 @@ perl/Makefile: perl/Makefile.PL subdirs
  	    -NET-SNMP-CONFIG="sh $$dir/net-snmp-config" $(PERLARGS)
  
  perlinstall:
@@ -20,6 +20,3 @@ index 9dbdde1..a389505 100644
          if test $$? != 0 ; then \
             exit 1 ; \
          fi
--- 
-2.19.1
-

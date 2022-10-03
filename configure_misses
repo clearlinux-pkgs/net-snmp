@@ -1,10 +1,9 @@
-Configure miss: -leay32
 Configure miss: Counter64
-Configure miss: ERR_get_error_all
 Configure miss: EVP_MD_CTX_create
 Configure miss: EVP_MD_CTX_destroy
 Configure miss: IP_RECVDSTADDR 
 Configure miss: MIB_IF_TABLE2
+Configure miss: OpenSSL_add_all_algorithms
 Configure miss: SSL_library_init
 Configure miss: SSL_load_error_strings
 Configure miss: _NSGetArgv()

@@ -293,14 +293,11 @@ libnetsnmp.so.40:netsnmp_container_get_binary_array
 libnetsnmp.so.40:netsnmp_container_get_binary_array_factory
 libnetsnmp.so.40:netsnmp_container_get_factory
 libnetsnmp.so.40:netsnmp_container_get_fifo
-libnetsnmp.so.40:netsnmp_container_get_fifo_factory
 libnetsnmp.so.40:netsnmp_container_get_null
 libnetsnmp.so.40:netsnmp_container_get_null_factory
 libnetsnmp.so.40:netsnmp_container_get_singly_linked_list
 libnetsnmp.so.40:netsnmp_container_get_ssll
-libnetsnmp.so.40:netsnmp_container_get_ssll_factory
 libnetsnmp.so.40:netsnmp_container_get_usll
-libnetsnmp.so.40:netsnmp_container_get_usll_factory
 libnetsnmp.so.40:netsnmp_container_init_list
 libnetsnmp.so.40:netsnmp_container_iterator_get
 libnetsnmp.so.40:netsnmp_container_iterator_set_data_cb
@@ -1850,12 +1847,10 @@ libnetsnmpmibs.so.40:header_complex_parse_oid
 libnetsnmpmibs.so.40:header_generic
 libnetsnmpmibs.so.40:header_hrdevice
 libnetsnmpmibs.so.40:header_hrdisk
-libnetsnmpmibs.so.40:header_hrhfilesys
 libnetsnmpmibs.so.40:header_hrnet
 libnetsnmpmibs.so.40:header_hrpartition
 libnetsnmpmibs.so.40:header_hrprint
 libnetsnmpmibs.so.40:header_hrproc
-libnetsnmpmibs.so.40:header_hrstoreEntry
 libnetsnmpmibs.so.40:header_hrsys
 libnetsnmpmibs.so.40:header_simple_table
 libnetsnmpmibs.so.40:hrSWInstalledTable_handler
@@ -1942,7 +1937,6 @@ libnetsnmpmibs.so.40:ifTable_dirty_set
 libnetsnmpmibs.so.40:ifTable_index_from_oid
 libnetsnmpmibs.so.40:ifTable_index_to_oid
 libnetsnmpmibs.so.40:ifTable_indexes_set
-libnetsnmpmibs.so.40:ifTable_indexes_set_tbl_idx
 libnetsnmpmibs.so.40:ifTable_init_data
 libnetsnmpmibs.so.40:ifTable_lastChange_set
 libnetsnmpmibs.so.40:ifTable_post_request
@@ -1953,8 +1947,6 @@ libnetsnmpmibs.so.40:ifTable_release_data
 libnetsnmpmibs.so.40:ifTable_release_rowreq_ctx
 libnetsnmpmibs.so.40:ifTable_row_find_by_mib_index
 libnetsnmpmibs.so.40:ifTable_row_prep
-libnetsnmpmibs.so.40:ifTable_rowreq_ctx_cleanup
-libnetsnmpmibs.so.40:ifTable_rowreq_ctx_init
 libnetsnmpmibs.so.40:ifTable_undo
 libnetsnmpmibs.so.40:ifTable_undo_cleanup
 libnetsnmpmibs.so.40:ifTable_undo_commit
@@ -2791,6 +2783,7 @@ libnetsnmpmibs.so.40:netsnmp_arch_udp_endpoint_delete
 libnetsnmpmibs.so.40:netsnmp_arch_udp_endpoint_entry_cleanup
 libnetsnmpmibs.so.40:netsnmp_arch_udp_endpoint_entry_copy
 libnetsnmpmibs.so.40:netsnmp_arch_udp_endpoint_entry_init
+libnetsnmpmibs.so.40:netsnmp_convert_arphrd_type
 libnetsnmpmibs.so.40:netsnmp_cpu_arch_load
 libnetsnmpmibs.so.40:netsnmp_cpu_get_byIdx
 libnetsnmpmibs.so.40:netsnmp_cpu_get_byName
@@ -2845,6 +2838,7 @@ libnetsnmpmibs.so.40:netsnmp_memory_load
 libnetsnmpmibs.so.40:netsnmp_parse_override
 libnetsnmpmibs.so.40:netsnmp_prefix_listen
 libnetsnmpmibs.so.40:netsnmp_prefix_process
+libnetsnmpmibs.so.40:netsnmp_process_link_flags
 libnetsnmpmibs.so.40:netsnmp_swinst_arch_init
 libnetsnmpmibs.so.40:netsnmp_swinst_arch_load
 libnetsnmpmibs.so.40:netsnmp_swinst_arch_shutdown

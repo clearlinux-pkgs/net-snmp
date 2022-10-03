@@ -5,13 +5,13 @@
 # Source0 file verified with key 0xF07B9D2DACB19FD6 (net-snmp-admins@lists.sourceforge.net)
 #
 Name     : net-snmp
-Version  : 5.9.1
-Release  : 52
-URL      : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9.1/net-snmp-5.9.1.tar.gz
-Source0  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9.1/net-snmp-5.9.1.tar.gz
+Version  : 5.9.3
+Release  : 53
+URL      : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9.3/net-snmp-5.9.3.tar.gz
+Source0  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9.3/net-snmp-5.9.3.tar.gz
 Source1  : snmpd.service
 Source2  : snmptrapd.service
-Source3  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9.1/net-snmp-5.9.1.tar.gz.asc
+Source3  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9.3/net-snmp-5.9.3.tar.gz.asc
 Summary  : Tools and services for the SNMP protocol
 Group    : Development/Tools
 License  : BSD-3-Clause OpenSSL
@@ -36,8 +36,7 @@ BuildRequires : pkgconfig(ncurses)
 BuildRequires : procps-ng
 BuildRequires : valgrind
 BuildRequires : valgrind-dev
-Patch1: cve-2014-2285.nopatch
-Patch2: 0001-Use-vendor-path.patch
+Patch1: 0001-Use-vendor-path.patch
 
 %description
 Net-SNMP provides tools and libraries relating to the Simple Network
@@ -123,16 +122,16 @@ services components for the net-snmp package.
 
 
 %prep
-%setup -q -n net-snmp-5.9.1
-cd %{_builddir}/net-snmp-5.9.1
-%patch2 -p1
+%setup -q -n net-snmp-5.9.3
+cd %{_builddir}/net-snmp-5.9.3
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654288112
+export SOURCE_DATE_EPOCH=1664819968
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
@@ -142,12 +141,12 @@ export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-re
 make  %{?_smp_mflags}  -j1
 
 %install
-export SOURCE_DATE_EPOCH=1654288112
+export SOURCE_DATE_EPOCH=1664819968
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/net-snmp
-cp %{_builddir}/net-snmp-5.9.1/COPYING %{buildroot}/usr/share/package-licenses/net-snmp/3783c8f99c31700ddd8453682f0178c88c14012c
-cp %{_builddir}/net-snmp-5.9.1/python/LICENSE %{buildroot}/usr/share/package-licenses/net-snmp/77bac2446a3e00a3aa1b8aaba3506d4ea46d6e5d
-cp %{_builddir}/net-snmp-5.9.1/snmplib/openssl/OPENSSL-LICENSE %{buildroot}/usr/share/package-licenses/net-snmp/c9c50bd46b69aba62e61c65d8ab08dd1e8c83b38
+cp %{_builddir}/net-snmp-%{version}/COPYING %{buildroot}/usr/share/package-licenses/net-snmp/3783c8f99c31700ddd8453682f0178c88c14012c
+cp %{_builddir}/net-snmp-%{version}/python/LICENSE %{buildroot}/usr/share/package-licenses/net-snmp/77bac2446a3e00a3aa1b8aaba3506d4ea46d6e5d
+cp %{_builddir}/net-snmp-%{version}/snmplib/openssl/OPENSSL-LICENSE %{buildroot}/usr/share/package-licenses/net-snmp/c9c50bd46b69aba62e61c65d8ab08dd1e8c83b38
 %make_install
 mkdir -p %{buildroot}/usr/lib/systemd/system
 install -m 0644 %{SOURCE1} %{buildroot}/usr/lib/systemd/system/snmpd.service
@@ -449,7 +448,6 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 /usr/include/net-snmp/library/data_list.h
 /usr/include/net-snmp/library/default_store.h
 /usr/include/net-snmp/library/dir_utils.h
-/usr/include/net-snmp/library/factory.h
 /usr/include/net-snmp/library/fd_event_manager.h
 /usr/include/net-snmp/library/file_utils.h
 /usr/include/net-snmp/library/getopt.h
@@ -678,15 +676,15 @@ find %{buildroot} -type f -name '.packlist' -exec rm -f {} \;
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libnetsnmp.so.40
-/usr/lib64/libnetsnmp.so.40.1.0
+/usr/lib64/libnetsnmp.so.40.2.0
 /usr/lib64/libnetsnmpagent.so.40
-/usr/lib64/libnetsnmpagent.so.40.1.0
+/usr/lib64/libnetsnmpagent.so.40.2.0
 /usr/lib64/libnetsnmphelpers.so.40
-/usr/lib64/libnetsnmphelpers.so.40.1.0
+/usr/lib64/libnetsnmphelpers.so.40.2.0
 /usr/lib64/libnetsnmpmibs.so.40
-/usr/lib64/libnetsnmpmibs.so.40.1.0
+/usr/lib64/libnetsnmpmibs.so.40.2.0
 /usr/lib64/libnetsnmptrapd.so.40
-/usr/lib64/libnetsnmptrapd.so.40.1.0
+/usr/lib64/libnetsnmptrapd.so.40.2.0
 
 %files license
 %defattr(0644,root,root,0755)
