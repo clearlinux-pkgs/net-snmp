@@ -6,7 +6,7 @@
 #
 Name     : net-snmp
 Version  : 5.9.3
-Release  : 53
+Release  : 54
 URL      : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9.3/net-snmp-5.9.3.tar.gz
 Source0  : https://sourceforge.net/projects/net-snmp/files/net-snmp/5.9.3/net-snmp-5.9.3.tar.gz
 Source1  : snmpd.service
@@ -37,6 +37,7 @@ BuildRequires : procps-ng
 BuildRequires : valgrind
 BuildRequires : valgrind-dev
 Patch1: 0001-Use-vendor-path.patch
+Patch2: 0002-Set-rpath-for-libperl.so-to-fix-snmppcap-linkage.patch
 
 %description
 Net-SNMP provides tools and libraries relating to the Simple Network
@@ -125,13 +126,14 @@ services components for the net-snmp package.
 %setup -q -n net-snmp-5.9.3
 cd %{_builddir}/net-snmp-5.9.3
 %patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1664819968
+export SOURCE_DATE_EPOCH=1664904573
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
 export FCFLAGS="$FFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-regs=used "
@@ -141,7 +143,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto -fstack-protector-strong -fzero-call-used-re
 make  %{?_smp_mflags}  -j1
 
 %install
-export SOURCE_DATE_EPOCH=1664819968
+export SOURCE_DATE_EPOCH=1664904573
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/net-snmp
 cp %{_builddir}/net-snmp-%{version}/COPYING %{buildroot}/usr/share/package-licenses/net-snmp/3783c8f99c31700ddd8453682f0178c88c14012c
