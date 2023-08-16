@@ -261,6 +261,7 @@ libnetsnmp.so.40:netsnmp_check_vb_type
 libnetsnmp.so.40:netsnmp_check_vb_type_and_max_size
 libnetsnmp.so.40:netsnmp_check_vb_type_and_size
 libnetsnmp.so.40:netsnmp_check_vb_uint
+libnetsnmp.so.40:netsnmp_cleanup_session
 libnetsnmp.so.40:netsnmp_clear_callback_list
 libnetsnmp.so.40:netsnmp_clear_default_domain
 libnetsnmp.so.40:netsnmp_clear_default_target
@@ -951,8 +952,6 @@ libnetsnmp.so.40:sprint_realloc_uinteger
 libnetsnmp.so.40:sprint_realloc_value
 libnetsnmp.so.40:sprint_realloc_variable
 libnetsnmp.so.40:store_vacm
-libnetsnmp.so.40:strlcat
-libnetsnmp.so.40:strlcpy
 libnetsnmp.so.40:timeval_tticks
 libnetsnmp.so.40:u64Copy
 libnetsnmp.so.40:u64Incr

@@ -1,301 +1,392 @@
 Configure miss: Counter64
+Configure miss: Counter64
+Configure miss: EVP_MD_CTX_create
 Configure miss: EVP_MD_CTX_create
 Configure miss: EVP_MD_CTX_destroy
+Configure miss: EVP_MD_CTX_destroy
+Configure miss: IP_RECVDSTADDR 
 Configure miss: IP_RECVDSTADDR 
 Configure miss: MIB_IF_TABLE2
+Configure miss: MIB_IF_TABLE2
+Configure miss: OpenSSL_add_all_algorithms
 Configure miss: OpenSSL_add_all_algorithms
 Configure miss: SSL_library_init
+Configure miss: SSL_library_init
+Configure miss: SSL_load_error_strings
 Configure miss: SSL_load_error_strings
 Configure miss: _NSGetArgv()
+Configure miss: _NSGetArgv()
+Configure miss: _NSGetExecutablePath()
 Configure miss: _NSGetExecutablePath()
 Configure miss: _beginthreadex()
+Configure miss: _beginthreadex()
+Configure miss: _cputs()
 Configure miss: _cputs()
 Configure miss: _get_osfhandle()
+Configure miss: _get_osfhandle()
+Configure miss: _getch()
 Configure miss: _getch()
 Configure miss: _open_osfhandle()
+Configure miss: _open_osfhandle()
 Configure miss: asm/page.h
-Configure miss: asm/page.h presence
-Configure miss: asm/page.h usability
+Configure miss: asm/page.h
+Configure miss: cgetnext
 Configure miss: cgetnext
 Configure miss: closesocket
+Configure miss: closesocket
+Configure miss: dpkg-query
 Configure miss: dpkg-query
 Configure miss: eval_pv
+Configure miss: eval_pv
+Configure miss: forkall
 Configure miss: forkall
 Configure miss: getfsstat
+Configure miss: getfsstat
+Configure miss: getipnodebyname
 Configure miss: getipnodebyname
 Configure miss: getvfsstat
+Configure miss: getvfsstat
+Configure miss: if I need to feed myself to ksh
 Configure miss: if I need to feed myself to ksh
 Configure miss: if sysctl can read kernel information
+Configure miss: if sysctl can read kernel information
+Configure miss: if we should install the python bindings
 Configure miss: if we should install the python bindings
 Configure miss: in6addr_any in -lsocket
+Configure miss: in6addr_any in -lsocket
 Configure miss: inet/mib2.h
-Configure miss: inet/mib2.h presence
-Configure miss: inet/mib2.h usability
+Configure miss: inet/mib2.h
 Configure miss: ioctls.h
-Configure miss: ioctls.h presence
-Configure miss: ioctls.h usability
+Configure miss: ioctls.h
+Configure miss: iphlpapi.h
 Configure miss: iphlpapi.h
 Configure miss: kinfo_get_cpus
+Configure miss: kinfo_get_cpus
+Configure miss: knlist
 Configure miss: knlist
 Configure miss: kstat.h
-Configure miss: kstat.h presence
-Configure miss: kstat.h usability
+Configure miss: kstat.h
+Configure miss: kstat_lookup in -lkstat
 Configure miss: kstat_lookup in -lkstat
 Configure miss: kvm.h
-Configure miss: kvm.h presence
-Configure miss: kvm.h usability
+Configure miss: kvm.h
+Configure miss: kvm_getfile2
 Configure miss: kvm_getfile2
 Configure miss: kvm_getfiles
+Configure miss: kvm_getfiles
+Configure miss: kvm_getproc2
 Configure miss: kvm_getproc2
 Configure miss: kvm_getprocs
+Configure miss: kvm_getprocs
+Configure miss: kvm_getswapinfo
 Configure miss: kvm_getswapinfo
 Configure miss: kvm_openfiles
+Configure miss: kvm_openfiles
+Configure miss: library containing getfsstat
 Configure miss: library containing getfsstat
 Configure miss: library containing kinfo_get_cpus
+Configure miss: library containing kinfo_get_cpus
+Configure miss: library containing kvm_getfile2
 Configure miss: library containing kvm_getfile2
 Configure miss: library containing kvm_getfiles
+Configure miss: library containing kvm_getfiles
+Configure miss: library containing kvm_getproc2
 Configure miss: library containing kvm_getproc2
 Configure miss: library containing kvm_getprocs
+Configure miss: library containing kvm_getprocs
+Configure miss: library containing kvm_getswapinfo
 Configure miss: library containing kvm_getswapinfo
 Configure miss: library containing kvm_openfiles
+Configure miss: library containing kvm_openfiles
 Configure miss: library containing kvm_read
-Configure miss: library containing nl_connect
+Configure miss: library containing kvm_read
 Configure miss: linux/tasks.h
-Configure miss: linux/tasks.h presence
-Configure miss: linux/tasks.h usability
+Configure miss: linux/tasks.h
+Configure miss: lm.h
 Configure miss: lm.h
 Configure miss: location of swap device
+Configure miss: location of swap device
+Configure miss: lpstat
 Configure miss: lpstat
 Configure miss: mach-o/dyld.h
-Configure miss: mach-o/dyld.h presence
-Configure miss: mach-o/dyld.h usability
+Configure miss: mach-o/dyld.h
 Configure miss: machine/param.h
-Configure miss: machine/param.h presence
-Configure miss: machine/param.h usability
+Configure miss: machine/param.h
 Configure miss: machine/pte.h
-Configure miss: machine/pte.h presence
-Configure miss: machine/pte.h usability
+Configure miss: machine/pte.h
+Configure miss: machine/types.h
 Configure miss: machine/types.h
 Configure miss: mib2_ipIfStatsEntry_t
+Configure miss: mib2_ipIfStatsEntry_t
 Configure miss: mtab.h
-Configure miss: mtab.h presence
-Configure miss: mtab.h usability
+Configure miss: mtab.h
 Configure miss: nbutil.h
-Configure miss: nbutil.h presence
-Configure miss: nbutil.h usability
+Configure miss: nbutil.h
 Configure miss: ncurses/curses.h
-Configure miss: ncurses/curses.h presence
-Configure miss: ncurses/curses.h usability
+Configure miss: ncurses/curses.h
+Configure miss: net/if_mib.h
 Configure miss: net/if_mib.h
 Configure miss: net/if_types.h
+Configure miss: net/if_types.h
+Configure miss: net/if_var.h
 Configure miss: net/if_var.h
 Configure miss: netinet/icmp_var.h
+Configure miss: netinet/icmp_var.h
+Configure miss: netinet/in_pcb.h
 Configure miss: netinet/in_pcb.h
 Configure miss: netinet/in_var.h
+Configure miss: netinet/in_var.h
+Configure miss: netinet/ip_var.h
 Configure miss: netinet/ip_var.h
 Configure miss: netinet/tcp_fsm.h
+Configure miss: netinet/tcp_fsm.h
+Configure miss: netinet/tcp_timer.h
 Configure miss: netinet/tcp_timer.h
 Configure miss: netinet/tcp_var.h
+Configure miss: netinet/tcp_var.h
+Configure miss: netinet/tcpip.h
 Configure miss: netinet/tcpip.h
 Configure miss: netinet/udp_var.h
+Configure miss: netinet/udp_var.h
+Configure miss: netinet6/in6_pcb.h
 Configure miss: netinet6/in6_pcb.h
 Configure miss: netinet6/in6_var.h
+Configure miss: netinet6/in6_var.h
+Configure miss: netinet6/ip6_var.h
 Configure miss: netinet6/ip6_var.h
 Configure miss: netinet6/nd6.h
+Configure miss: netinet6/nd6.h
+Configure miss: netinet6/tcp6.h
 Configure miss: netinet6/tcp6.h
 Configure miss: netinet6/tcp6_fsm.h
+Configure miss: netinet6/tcp6_fsm.h
+Configure miss: netinet6/tcp6_timer.h
 Configure miss: netinet6/tcp6_timer.h
 Configure miss: netinet6/tcp6_var.h
+Configure miss: netinet6/tcp6_var.h
+Configure miss: nlist
 Configure miss: nlist
 Configure miss: nlist.h
+Configure miss: nlist.h
+Configure miss: nlist64
 Configure miss: nlist64
 Configure miss: osreldate.h
+Configure miss: osreldate.h
+Configure miss: perl_eval_pv
 Configure miss: perl_eval_pv
 Configure miss: picl.h
-Configure miss: picl.h presence
-Configure miss: picl.h usability
+Configure miss: picl.h
 Configure miss: pkg.h
 Configure miss: pkg.h
-Configure miss: pkg.h presence
-Configure miss: pkg.h presence
-Configure miss: pkg.h usability
-Configure miss: pkg.h usability
+Configure miss: pkg.h
+Configure miss: pkg.h
 Configure miss: pkginfo.h
-Configure miss: pkginfo.h presence
-Configure miss: pkginfo.h usability
+Configure miss: pkginfo.h
 Configure miss: pkglocs.h
-Configure miss: pkglocs.h presence
-Configure miss: pkglocs.h usability
-Configure miss: process.h presence
-Configure miss: process.h usability
+Configure miss: pkglocs.h
 Configure miss: rpm/header.h
-Configure miss: rpm/header.h presence
-Configure miss: rpm/header.h usability
+Configure miss: rpm/header.h
+Configure miss: rpm/rpmfileutil.h
 Configure miss: rpm/rpmfileutil.h
 Configure miss: rpm/rpmlib.h
-Configure miss: rpm/rpmlib.h presence
-Configure miss: rpm/rpmlib.h usability
+Configure miss: rpm/rpmlib.h
+Configure miss: rpm/rpmts.h
 Configure miss: rpm/rpmts.h
 Configure miss: security/cryptoki.h
-Configure miss: security/cryptoki.h presence
-Configure miss: security/cryptoki.h usability
+Configure miss: security/cryptoki.h
 Configure miss: sensors/sensors.h
-Configure miss: sensors/sensors.h presence
-Configure miss: sensors/sensors.h usability
+Configure miss: sensors/sensors.h
+Configure miss: sigalrm
 Configure miss: sigalrm
 Configure miss: stime
+Configure miss: stime
+Configure miss: struct arphd.at_next
 Configure miss: struct arphd.at_next
 Configure miss: struct des_ks_struct.weak_key
+Configure miss: struct des_ks_struct.weak_key
+Configure miss: struct ifnet.if_addrhead.tqh_first
 Configure miss: struct ifnet.if_addrhead.tqh_first
 Configure miss: struct ifnet.if_addrlist
+Configure miss: struct ifnet.if_addrlist
+Configure miss: struct ifnet.if_baudrate
 Configure miss: struct ifnet.if_baudrate
 Configure miss: struct ifnet.if_baudrate.ifs_value
+Configure miss: struct ifnet.if_baudrate.ifs_value
+Configure miss: struct ifnet.if_imcasts
 Configure miss: struct ifnet.if_imcasts
 Configure miss: struct ifnet.if_lastchange.tv_nsec
+Configure miss: struct ifnet.if_lastchange.tv_nsec
+Configure miss: struct ifnet.if_lastchange.tv_sec
 Configure miss: struct ifnet.if_lastchange.tv_sec
 Configure miss: struct ifnet.if_noproto
+Configure miss: struct ifnet.if_noproto
+Configure miss: struct ifnet.if_omcasts
 Configure miss: struct ifnet.if_omcasts
 Configure miss: struct ifnet.if_xname
+Configure miss: struct ifnet.if_xname
+Configure miss: struct in_ifaddr.ia_subnetmask
 Configure miss: struct in_ifaddr.ia_subnetmask
 Configure miss: struct ip6stat.ip6s_exthdrtoolong 
+Configure miss: struct ip6stat.ip6s_exthdrtoolong 
+Configure miss: struct ipstat.ips_cantforward
 Configure miss: struct ipstat.ips_cantforward
 Configure miss: struct ipstat.ips_cantfrag
+Configure miss: struct ipstat.ips_cantfrag
+Configure miss: struct ipstat.ips_delivered
 Configure miss: struct ipstat.ips_delivered
 Configure miss: struct ipstat.ips_fragdropped
+Configure miss: struct ipstat.ips_fragdropped
+Configure miss: struct ipstat.ips_fragmented
 Configure miss: struct ipstat.ips_fragmented
 Configure miss: struct ipstat.ips_fragtimeout
+Configure miss: struct ipstat.ips_fragtimeout
+Configure miss: struct ipstat.ips_localout
 Configure miss: struct ipstat.ips_localout
 Configure miss: struct ipstat.ips_noproto
+Configure miss: struct ipstat.ips_noproto
+Configure miss: struct ipstat.ips_noroute
 Configure miss: struct ipstat.ips_noroute
 Configure miss: struct ipstat.ips_odropped
+Configure miss: struct ipstat.ips_odropped
+Configure miss: struct ipstat.ips_ofragments
 Configure miss: struct ipstat.ips_ofragments
 Configure miss: struct ipstat.ips_reassembled
+Configure miss: struct ipstat.ips_reassembled
+Configure miss: struct mbstat.m_clfree
 Configure miss: struct mbstat.m_clfree
 Configure miss: struct mbstat.m_clusters
+Configure miss: struct mbstat.m_clusters
+Configure miss: struct mbstat.m_mbufs
 Configure miss: struct mbstat.m_mbufs
 Configure miss: struct nlist.n_value
+Configure miss: struct nlist.n_value
+Configure miss: struct nlist64.n_value
 Configure miss: struct nlist64.n_value
 Configure miss: struct rtentry.rt_hash
+Configure miss: struct rtentry.rt_hash
+Configure miss: struct rtentry.rt_next
 Configure miss: struct rtentry.rt_next
 Configure miss: struct rtentry.rt_refcnt
+Configure miss: struct rtentry.rt_refcnt
+Configure miss: struct rtentry.rt_unit
 Configure miss: struct rtentry.rt_unit
 Configure miss: struct rtentry.rt_use
+Configure miss: struct rtentry.rt_use
+Configure miss: struct sockaddr.sa_union.sa_generic.sa_family2
 Configure miss: struct sockaddr.sa_union.sa_generic.sa_family2
 Configure miss: struct sockaddr_storage.__ss_family
+Configure miss: struct sockaddr_storage.__ss_family
+Configure miss: struct statfs.f_favail
 Configure miss: struct statfs.f_favail
 Configure miss: struct statvfs.mnt_dir
+Configure miss: struct statvfs.mnt_dir
+Configure miss: struct swdevt.sw_nblksenabled
 Configure miss: struct swdevt.sw_nblksenabled
 Configure miss: struct tcpstat.tcp_rcvmemdrop
+Configure miss: struct tcpstat.tcp_rcvmemdrop
+Configure miss: struct udpstat.udps_discard
 Configure miss: struct udpstat.udps_discard
 Configure miss: struct udpstat.udps_fullsock
+Configure miss: struct udpstat.udps_fullsock
+Configure miss: struct udpstat.udps_ipackets
 Configure miss: struct udpstat.udps_ipackets
 Configure miss: struct udpstat.udps_noport
+Configure miss: struct udpstat.udps_noport
+Configure miss: struct udpstat.udps_noportbcast
 Configure miss: struct udpstat.udps_noportbcast
 Configure miss: struct udpstat.udps_opackets
+Configure miss: struct udpstat.udps_opackets
+Configure miss: struct uvmexp.pgswapin
 Configure miss: struct uvmexp.pgswapin
 Configure miss: sys/conf.h
+Configure miss: sys/conf.h
 Configure miss: sys/diskio.h
-Configure miss: sys/diskio.h presence
-Configure miss: sys/diskio.h usability
+Configure miss: sys/diskio.h
 Configure miss: sys/dkio.h
-Configure miss: sys/dkio.h presence
-Configure miss: sys/dkio.h usability
+Configure miss: sys/dkio.h
+Configure miss: sys/dkstat.h
 Configure miss: sys/dkstat.h
 Configure miss: sys/dmap.h
-Configure miss: sys/dmap.h presence
-Configure miss: sys/dmap.h usability
+Configure miss: sys/dmap.h
 Configure miss: sys/fixpoint.h
-Configure miss: sys/fixpoint.h presence
-Configure miss: sys/fixpoint.h usability
+Configure miss: sys/fixpoint.h
 Configure miss: sys/fs.h
-Configure miss: sys/fs.h presence
-Configure miss: sys/fs.h usability
+Configure miss: sys/fs.h
+Configure miss: sys/hashing.h
 Configure miss: sys/hashing.h
 Configure miss: sys/mbuf.h
+Configure miss: sys/mbuf.h
 Configure miss: sys/mntent.h
-Configure miss: sys/mntent.h presence
-Configure miss: sys/mntent.h usability
+Configure miss: sys/mntent.h
 Configure miss: sys/mnttab.h
-Configure miss: sys/mnttab.h presence
-Configure miss: sys/mnttab.h usability
+Configure miss: sys/mnttab.h
 Configure miss: sys/pool.h
-Configure miss: sys/pool.h presence
-Configure miss: sys/pool.h usability
+Configure miss: sys/pool.h
+Configure miss: sys/proc.h
 Configure miss: sys/proc.h
 Configure miss: sys/protosw.h
-Configure miss: sys/protosw.h presence
-Configure miss: sys/protosw.h usability
-Configure miss: sys/pstat.h presence
-Configure miss: sys/pstat.h usability
+Configure miss: sys/protosw.h
 Configure miss: sys/sema.h
-Configure miss: sys/sema.h presence
-Configure miss: sys/sema.h usability
+Configure miss: sys/sema.h
 Configure miss: sys/stream.h
-Configure miss: sys/stream.h presence
-Configure miss: sys/stream.h usability
+Configure miss: sys/stream.h
 Configure miss: sys/sysget.h
-Configure miss: sys/sysget.h presence
-Configure miss: sys/sysget.h usability
+Configure miss: sys/sysget.h
 Configure miss: sys/sysmp.h
-Configure miss: sys/sysmp.h presence
-Configure miss: sys/sysmp.h usability
+Configure miss: sys/sysmp.h
 Configure miss: sys/systemcfg.h
-Configure miss: sys/systemcfg.h presence
-Configure miss: sys/systemcfg.h usability
+Configure miss: sys/systemcfg.h
 Configure miss: sys/tcpipstats.h
-Configure miss: sys/tcpipstats.h presence
-Configure miss: sys/tcpipstats.h usability
+Configure miss: sys/tcpipstats.h
 Configure miss: sys/timeout.h
-Configure miss: sys/timeout.h presence
-Configure miss: sys/timeout.h usability
+Configure miss: sys/timeout.h
 Configure miss: sys/vm.h
-Configure miss: sys/vm.h presence
-Configure miss: sys/vm.h usability
+Configure miss: sys/vm.h
 Configure miss: sys/vmmac.h
-Configure miss: sys/vmmac.h presence
-Configure miss: sys/vmmac.h usability
+Configure miss: sys/vmmac.h
 Configure miss: sys/vmmeter.h
-Configure miss: sys/vmmeter.h presence
-Configure miss: sys/vmmeter.h usability
+Configure miss: sys/vmmeter.h
 Configure miss: sys/vmparam.h
-Configure miss: sys/vmparam.h presence
-Configure miss: sys/vmparam.h usability
+Configure miss: sys/vmparam.h
 Configure miss: sys/vmsystm.h
-Configure miss: sys/vmsystm.h presence
-Configure miss: sys/vmsystm.h usability
+Configure miss: sys/vmsystm.h
+Configure miss: sys/vnode.h
 Configure miss: sys/vnode.h
 Configure miss: two-argument statfs with struct fs_data (Ultrix)
+Configure miss: two-argument statfs with struct fs_data (Ultrix)
+Configure miss: ufs/ffs/fs.h
 Configure miss: ufs/ffs/fs.h
 Configure miss: ufs/fs.h
-Configure miss: ufs/fs.h presence
-Configure miss: ufs/fs.h usability
+Configure miss: ufs/fs.h
+Configure miss: ufs/ufs/dinode.h
 Configure miss: ufs/ufs/dinode.h
 Configure miss: ufs/ufs/inode.h
+Configure miss: ufs/ufs/inode.h
+Configure miss: ufs/ufs/quota.h
 Configure miss: ufs/ufs/quota.h
 Configure miss: utsname.h
-Configure miss: utsname.h presence
-Configure miss: utsname.h usability
+Configure miss: utsname.h
 Configure miss: uvm/uvm_extern.h
-Configure miss: uvm/uvm_extern.h presence
-Configure miss: uvm/uvm_extern.h usability
+Configure miss: uvm/uvm_extern.h
 Configure miss: uvm/uvm_param.h
-Configure miss: uvm/uvm_param.h presence
-Configure miss: uvm/uvm_param.h usability
+Configure miss: uvm/uvm_param.h
+Configure miss: vm/swap_pager.h
 Configure miss: vm/swap_pager.h
 Configure miss: vm/vm.h
-Configure miss: vm/vm.h presence
-Configure miss: vm/vm.h usability
+Configure miss: vm/vm.h
 Configure miss: vm/vm_extern.h
-Configure miss: vm/vm_extern.h presence
-Configure miss: vm/vm_extern.h usability
+Configure miss: vm/vm_extern.h
 Configure miss: vm/vm_param.h
-Configure miss: vm/vm_param.h presence
-Configure miss: vm/vm_param.h usability
+Configure miss: vm/vm_param.h
+Configure miss: vm_region
 Configure miss: vm_region
 Configure miss: vm_region_64
+Configure miss: vm_region_64
+Configure miss: whether TCP timers depend on 'hz'
 Configure miss: whether TCP timers depend on 'hz'
 Configure miss: whether static inline functions are broken (Unixware)
+Configure miss: whether static inline functions are broken (Unixware)
+Configure miss: windres
 Configure miss: windres
 Configure miss: xti.h
-Configure miss: xti.h presence
-Configure miss: xti.h usability
+Configure miss: xti.h
