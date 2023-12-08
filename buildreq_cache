@@ -3,5 +3,6 @@ e2fsprogs-dev
 libpcap-dev
 ncurses-dev
 pcre-dev
+perl(Getopt::Long)
 valgrind
 valgrind-dev
